@@ -1,4 +1,4 @@
-# 📊 MS Latency Tray Icon v2.0
+# 📊 Ms. Latency Tray Icon
 
 A **lightweight**, **secure**, and **ultra-low memory** Windows system tray application that displays real-time network latency. Perfect for monitoring your connection quality at a glance.
 
