@@ -2,3 +2,5 @@ Ms Latency Tray Icon.code-workspace
 latency_tray_full.exe
 latency_tray_full.obj
 latency_tray_full_x64.exe
+latency_tray_trimmed.obj
+latency_tray_trimmed.exe
