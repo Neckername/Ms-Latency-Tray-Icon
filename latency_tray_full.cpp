@@ -24,9 +24,6 @@
 
 // Delay load expensive DLLs
 #pragma comment(lib, "delayimp.lib")
-#pragma comment(linker, "/DELAYLOAD:iphlpapi.dll")
-#pragma comment(linker, "/DELAYLOAD:ws2_32.dll")
-#pragma comment(linker, "/DELAYLOAD:gdi32.dll")
 
 #define WM_TRAYICON   (WM_USER + 1)
 #define TRAY_UID      1001
@@ -137,16 +134,17 @@ static DWORD PingIPv4(const char* ip) {
     HANDLE hIcmp = IcmpCreateFile();
     if (hIcmp == INVALID_HANDLE_VALUE) return 999;
     
-    unsigned long addr = inet_addr(ip);
-    if (addr == INADDR_NONE) {
+    IN_ADDR addr;
+    if (InetPtonA(AF_INET, ip, &addr) != 1) {
         IcmpCloseHandle(hIcmp);
         return 999;
     }
+    unsigned long addr_long = addr.S_un.S_addr;
     
     char data[4] = "PNG";
     BYTE reply[sizeof(ICMP_ECHO_REPLY) + sizeof(data)];
     
-    DWORD ret = IcmpSendEcho(hIcmp, addr, data, sizeof(data), 
+    DWORD ret = IcmpSendEcho(hIcmp, addr_long, data, sizeof(data), 
                              NULL, reply, sizeof(reply), 1000);
     
     DWORD rtt = 999;

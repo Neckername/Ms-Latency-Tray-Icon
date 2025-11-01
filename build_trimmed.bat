@@ -19,10 +19,11 @@ cl /O1 /Os /Oy /GF /Gy /GL /MD /GS /guard:cf /Qspectre /W4 ^
    /link /LTCG /OPT:REF /OPT:ICF=10 ^
    /STACK:0x10000,0x10000 ^
    /HEAP:0x10000,0x10000 ^
-   /ALIGN:512 ^
    /MERGE:.rdata=.text ^
    /NXCOMPAT /DYNAMICBASE ^
-   /SUBSYSTEM:WINDOWS,5.01 ^
+   /SUBSYSTEM:WINDOWS,6.01 ^
+   /MANIFESTFILE:latency_tray_full.manifest ^
+   /DELAYLOAD:iphlpapi.dll /DELAYLOAD:ws2_32.dll /DELAYLOAD:gdi32.dll ^
    kernel32.lib user32.lib gdi32.lib shell32.lib ^
    iphlpapi.lib ws2_32.lib psapi.lib ^
    delayimp.lib
