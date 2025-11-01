@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "ms-latency-tray-icon",
+  "version": "1.0.0",
+  "description": "Lightweight Windows system tray application for real-time network latency monitoring",
+  "dependencies": []
+}
+

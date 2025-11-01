@@ -14,8 +14,8 @@ echo.
 
 REM Optimized build with safe memory settings
 cl /O1 /Os /Oy /GF /Gy /GL /MD /GS /guard:cf /Qspectre /W4 ^
-   latency_tray_trimmed.cpp ^
-   /Fe:latency_tray_trimmed.exe ^
+   latency_tray_full.cpp ^
+   /Fe:latency_tray_full.exe ^
    /link /LTCG /OPT:REF /OPT:ICF=10 ^
    /STACK:0x10000,0x10000 ^
    /HEAP:0x10000,0x10000 ^
@@ -35,7 +35,7 @@ if %errorlevel% neq 0 (
 
 echo.
 echo ============================================================
-echo BUILD SUCCESSFUL! Output: latency_tray_trimmed.exe
+echo BUILD SUCCESSFUL! Output: latency_tray_full.exe
 echo ============================================================
 echo.
 echo MEMORY OPTIMIZATIONS:
